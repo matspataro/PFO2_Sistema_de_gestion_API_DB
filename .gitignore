@@ -1,0 +1,22 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Entorno Virtual ---
+venv/
+.venv/
+env/
+
+# --- Base de Datos (SQLite) ---
+*.db
+*.db-journal
+
+# --- IDEs y Editores ---
+.vscode/
+.idea/
+.cursor/
+
+# --- Archivos del Sistema ---
+.DS_Store
+Thumbs.db
