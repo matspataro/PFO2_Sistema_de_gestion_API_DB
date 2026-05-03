@@ -25,6 +25,7 @@ Con el entorno virtual activo, utilice el gestor de paquetes pip para instalar l
 ## Ejecucion del Servidor
 
 Para iniciar la aplicacion, ejecute el script principal desde la terminal:
+
     ```bash
     python servidor.py
     ```
@@ -44,6 +45,7 @@ La aplicacion expone los siguientes puntos de acceso para interactuar con el sis
 ### Formato de datos para peticiones POST
 
 Para los endpoints de registro e inicio de sesion, se debe enviar un objeto JSON con la siguiente estructura:
+
     ```json
     {
     "usuario": "nombre_de_usuario",
