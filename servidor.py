@@ -34,12 +34,12 @@ def registrar_usuario():
     try:
         data = request.get_json()
         usuario = data.get('usuario')
-        password = data.get('contraseña')
+        contrasena = data.get('contraseña')
 
-        if not usuario or not password:
+        if not usuario or not contrasena:
             return jsonify({"error": "Faltan datos"}), 400
 
-        hash_seguro = generate_password_hash(password)
+        hash_seguro = generate_password_hash(contrasena)
 
         ejecutar_consulta("INSERT INTO usuarios (usuario, password_hash) VALUES (?, ?)", 
             (usuario, hash_seguro))
@@ -59,15 +59,15 @@ def login_usuario():
     try:
         data = request.get_json()
         usuario = data.get('usuario')
-        password = data.get('contraseña')
+        contrasena = data.get('contraseña')
 
-        if not usuario or not password:
+        if not usuario or not contrasena:
             return jsonify({"error": "Faltan datos"}), 400
 
         cursor = ejecutar_consulta("SELECT password_hash FROM usuarios WHERE usuario = ?", (usuario,))
         resultado = cursor.fetchone()
 
-        if resultado and check_password_hash(resultado[0], password):
+        if resultado and check_password_hash(resultado[0], contrasena):
             return jsonify({"mensaje": f"Bienvenido, {usuario}"}), 200
         else:
             return jsonify({"error": "Credenciales incorrectas"}), 401

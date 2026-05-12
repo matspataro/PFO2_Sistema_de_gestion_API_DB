@@ -22,15 +22,23 @@ Con el entorno virtual activo, utilice el gestor de paquetes pip para instalar l
     pip install -r requirements.txt
     ```
 
-## Ejecucion del Servidor
+## Ejecucion del Sistema
 
-Para iniciar la aplicacion, ejecute el script principal desde la terminal:
+El sistema consta de dos componentes que deben ejecutarse en terminales separadas:
 
-    ```bash
+1. Servidor (Backend):
+
+    ```Bash
     python servidor.py
     ```
+El servidor se iniciara en http://127.0.0.1:5000. En su primera ejecucion, creara automaticamente la base de datos gestion_tareas.db.
 
-El servidor comenzara a funcionar en http://127.0.0.1:5000. Al realizar la primera ejecucion, el sistema invocara automaticamente la funcion de inicializacion para configurar la base de datos gestion_tareas.db y las tablas de usuario necesarias.
+2. Cliente (Consola):
+
+    ```Bash
+    python cliente.py
+    ```
+Este script permite interactuar con la API mediante un menu interactivo para registrarse e iniciar sesion.
 
 ## Endpoints de la API
 
